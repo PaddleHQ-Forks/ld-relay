@@ -2,6 +2,13 @@
 
 All notable changes to the LaunchDarkly Relay will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [9.0.0-rc.5](https://github.com/launchdarkly/ld-relay/compare/v9.0.0-rc.4...v9.0.0-rc.5) (2026-06-09)
+
+
+### Bug Fixes
+
+* **v9:** bump SDK deps for EasyJSON removal (v4 cascade) ([#689](https://github.com/launchdarkly/ld-relay/issues/689)) ([7d04d5d](https://github.com/launchdarkly/ld-relay/commit/7d04d5dcd02d72369acd8e1cdf8b94ad260df2aa))
+
 ## [9.0.0-rc.4](https://github.com/launchdarkly/ld-relay/compare/v9.0.0-rc.3...v9.0.0-rc.4) (2026-06-08)
 
 
