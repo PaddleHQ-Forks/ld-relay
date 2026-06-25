@@ -28,7 +28,6 @@ type otlpExporterImpl struct {
 	resource       *resource.Resource
 	tracerProvider *sdktrace.TracerProvider
 	meterProvider  *sdkmetric.MeterProvider
-	loggers        ldlog.Loggers
 }
 
 func (o otlpExporterTypeImpl) getName() string {
@@ -59,19 +58,18 @@ func (o otlpExporterTypeImpl) createExporterIfEnabled(
 
 	traceExporter, err := otlptracegrpc.New(ctx, traceOptions...)
 	if err != nil {
-		return nil, err
+		return nil, err // COVERAGE: can't make this happen in unit tests
 	}
 	metricExporter, err := otlpmetricgrpc.New(ctx, metricOptions...)
 	if err != nil {
 		_ = traceExporter.Shutdown(ctx)
-		return nil, err
+		return nil, err // COVERAGE: can't make this happen in unit tests
 	}
 
 	return &otlpExporterImpl{
 		traceExporter:  traceExporter,
 		metricExporter: metricExporter,
 		resource:       resource.NewSchemaless(attribute.String("service.name", getPrefix(mc.OTLP.Prefix))),
-		loggers:        loggers,
 	}, nil
 }
 
